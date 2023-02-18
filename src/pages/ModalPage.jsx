@@ -1,5 +1,6 @@
-import { Box, Button, Modal, Typography } from '@mui/material';
-import React from 'react'
+import { Box, Button, Modal, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import React, { useContext } from 'react'
+import { FlatDashboardContext } from '../context';
 
 const style = {
     position: 'absolute',
@@ -14,19 +15,66 @@ const style = {
     p: 4,
   };
 
-const ModalPage = ({open, handleClose}) => {
+const ModalPage = ({open, handleClose, callback}) => {
 
-    {console.log(handleClose)}
+    //{console.log(handleClose)}
+
+    const {isFlatDashboardOpen, setIsFlatDashboardOpen} = useContext(FlatDashboardContext);
+
+    const rows = [
+      {id: 1, name: 'Квартира 1'},
+      {id: 2, name: 'Квартира 2'},
+      {id: 3, name: 'Квартира 3'},
+  ]
+
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    bgcolor: 'background.paper',
+    border: '1px solid secondary.main',
+    borderRadius: 8,
+    boxShadow: 24,
+    p: 4,
+  };
+
+  const handleClick = () => {
+    handleClose();
+    setIsFlatDashboardOpen(true);
+  }
 
   return (
     <Modal 
         open={open}
         onClose={handleClose}
-        
         >
-            <Box sx={style}>
-                <Typography>112312</Typography>
-            </Box>
+          <Box sx={style}>
+
+            <TableContainer component={Paper} sx={{width:'100%'}}>
+                <Table 
+                    sx={{minWidth: 650}}>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Номер</TableCell>
+                                <TableCell>Наименование</TableCell>
+                                <TableCell>Подробнее</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {rows.map((row) => (
+                                <TableRow 
+                                    key={row.id}>
+                                    <TableCell>{row.id}</TableCell>
+                                    <TableCell>{row.name}</TableCell>
+                                    <TableCell>{<Button id={row.id} onClick={handleClick}> Подробнее</Button>}</TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                  </Table>
+            </TableContainer>
+          </Box>
+
     </Modal>
   )
 }

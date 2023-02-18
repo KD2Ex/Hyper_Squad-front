@@ -28,6 +28,14 @@ const theme = createTheme({
               }
             `,
           },
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    fontWeight:'bold',
+                    textTransform: 'none',
+                }
+            }
+        },
         MuiBackdrop: {
             styleOverrides: {
                 root: {
@@ -105,6 +113,52 @@ const theme = createTheme({
             styleOverrides: {
                 root: {
                     size: 'small'
+                }
+            }
+        },
+        MuiFormControl: {
+            styleOverrides: {
+
+                root: {
+                    height: '30px',
+                    minWidth: '110px',
+                    p:0,
+                    m:0,
+                    borderRadius: 8,
+                },
+            },
+          },
+          MuiInputBase: {
+            styleOverrides: {
+
+                root: {
+                    height: '30px',
+                    minWidth: '110px',
+                    color: 'rgba(255, 110, 1, 1)',
+                    alignItems: 'center',
+                    m: 0,
+                    borderRadius: 8,
+                },
+            },
+        },
+        MuiSelect: {
+            styleOverrides: {
+                root: {
+                    p: 0,
+                    m: 0,
+                    alignItems: 'center',
+                    backgroundColor: 'white',
+                    fontWeight:'bold',
+                },
+                select: {
+                    padding: 0,
+                    paddingLeft: 12,
+                    fontWeigth: 'bold',
+                    '&.MuiInputBase-input': {
+                        '&.MuiFilledInput-input': {
+                            
+                        }
+                    }
                 }
             }
         }

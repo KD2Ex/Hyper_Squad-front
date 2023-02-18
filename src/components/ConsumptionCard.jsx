@@ -4,18 +4,28 @@ import { Bar, BarChart, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'r
 
 const ConsumptionCard = ({xs}) => {
 
+
+
     const [diagramType, setDiagramType] = useState('Boда');
 
+    //console.log(diagramType);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
-      console.log(event);
+        
+        setAnchorEl(event.currentTarget);
+      console.log(event.currentTarget);
     };
     const handleClose = (event) => {
       setAnchorEl(null);
-      console.log(event.target.outerText);
-      setDiagramType(event.target.outerText);
+     // console.log(event.target.outerText);
+      if (event.outerText != '') {
+        console.log(event.target.outerText)
+          setDiagramType(event.target.outerText);
+      } else {
+        setDiagramType('Вода');
+      }
+      
     };
 
     const COLORS = {

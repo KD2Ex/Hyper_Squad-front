@@ -1,7 +1,8 @@
 import { Card, CardActionArea, CardContent, Grid, Typography } from '@mui/material';
 import React, { useState } from 'react'
+import ModalPage from '../pages/ModalPage';
 
-const DashboardCard = ({Modal, currentCount, maxCount, icon, desc, xs}) => {
+const DashboardCard = ({Modal, currentCount, maxCount, icon, desc, xs, hideSlash}) => {
 
     const [open, setOpen] = useState(false);
 
@@ -24,11 +25,19 @@ const DashboardCard = ({Modal, currentCount, maxCount, icon, desc, xs}) => {
                 onClick={handleOpen}>
                 <CardContent>
                     {icon}
-                    <Typography variant='h5' fontWeight='bold' flexWrap="nowrap">{currentCount}/{maxCount}</Typography>
+                    <Typography variant='h5' fontWeight='bold' flexWrap="nowrap">
+                        {currentCount}
+                        {hideSlash === true ? null : '/'}
+                        {maxCount}
+                    </Typography>
                     <Typography flexWrap="wrap" color="primary.main">{desc}</Typography>
                 </CardContent>
             </CardActionArea>
         </Card>
+        {Modal !== null 
+            ? <ModalPage open={open} handleClose={handleClose}/>
+            : null
+        }
     </Grid>
   )
 }

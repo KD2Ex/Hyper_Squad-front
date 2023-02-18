@@ -27,7 +27,7 @@ const OrdersCard = ({orders, xs, title}) => {
                 <CardContent>
                     <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
 
-                        <Typography  fontWeight='bold' flexWrap="nowrap" width="fit-content">{title}</Typography>
+                        <Typography  fontWeight='bold' flexWrap="nowrap" width="fit-content" sx={{mb: 1}}>{title}</Typography>
 
                         <FormControl size='small' variant="filled" sx={{borderBottom: 'none', borderRadius: 12}}>
                             
