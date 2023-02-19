@@ -22,33 +22,42 @@ const FlatDashboard = () => {
     const {selectedFlat, setSelectedFlat, setIsFlatDashboardOpen, isBuildingDashAcitve, setIsBuildingDashActive} = useContext(FlatDashboardContext);
 
     const [orders, setOrders] = useState([
-        {id: 1, name: 'Jane cooper', price: '1200$', date: '12 Sep, 2023'},
-        {id: 2, name: 'Jane cooper', price: '1200$', date: '12 Sep, 2023'},
-        {id: 3, name: 'Jane cooper', price: '1200$', date: '12 Sep, 2023'},
-        {id: 4, name: 'Jane cooper', price: '1200$', date: '12 Sep, 2023'},
+        {id: 1, name: 'Иванов Иван', price: '3000р.', date: '12 Янв, 2023'},
+        {id: 2, name: 'Иванов Иван', price: '5000р.', date: '14 Янв, 2023'},
+        {id: 3, name: 'Иванов Иван', price: '2000р.', date: '15 Янв, 2023'},
+        
     ])
 
     const handleBack = () => {
         setSelectedFlat(null)
         setIsFlatDashboardOpen(false);
         setIsBuildingDashActive(true);
-        
+
     }
 
   return (
         <>
         
-        <div style={{display: 'flex', justifyContent:'space-between', alignItems: 'center', width:'inherit', paddingLeft: '16px', marginBottom: '8px'}}> 
-
-            <Typography
-                variant='h4'
-                fontWeight='bold'>
-                {selectedFlat?.name}
-            </Typography>
-
-            <Button startIcon={<UndoOutlined/>} onClick={handleBack}>
+        <div style={{display: 'flex', justifyContent:'flex-start', alignItems: 'center', width:'inherit', paddingLeft: '16px', marginBottom: '16px'}}> 
+            <Button sx={{fontSize: '20px'}} onClick={handleBack}>
                 Назад
             </Button>
+
+            <Typography
+                    fontSize={20}
+                    fontWeight='bold'
+                    sx={{mx: 1}}
+                    >
+                        /
+            </Typography>
+
+            <Typography
+                fontSize={24}
+                fontWeight='bold'>
+                {'Квартира №' + selectedFlat?.id}
+            </Typography>
+
+            
         </div>
 
         <Grid container spacing={2} sx={{bgcolor: 'white', px: 1 }} direction="row">

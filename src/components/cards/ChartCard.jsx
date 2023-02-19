@@ -2,9 +2,10 @@ import { Box, Card, CardActionArea, CardContent, FormControl, Grid, MenuItem, Pa
 import React, { useState } from 'react'
 import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
 
-const ChartCard = ({xs}) => {
+const ChartCard = ({xs, income}) => {
 
     const [selectedMonth, setSelectedMonth] = useState(0);
+
 
     const selectItems = [
         {label: 'Январь'},
@@ -29,22 +30,22 @@ const ChartCard = ({xs}) => {
         {
             name: 'Нояб',
             Расход: 3500,
-            Приход: 4000,
+            Приход: 7000,
         },
         {
             name: 'Дек',
-            Расход: 2500,
-            Приход: 5000,
+            Расход: 3000,
+            Приход: 6000,
         },
         {
             name: 'Янв',
-            Расход: 2500,
-            Приход: 5000,
+            Расход: 3000,
+            Приход: 7200,
         },
         {
             name: 'Февр',
-            Расход: 2500,
-            Приход: 5000,
+            Расход: 3500,
+            Приход: 8000,
         },
         {
             name: 'Март',
@@ -76,7 +77,7 @@ const ChartCard = ({xs}) => {
                             variant="h4"
                             fontWeight="bold"
                             sx={{mt: 2}}>
-                            250 000 руб.
+                            {income + " руб."}
                         </Typography> 
                         
                         <Typography 

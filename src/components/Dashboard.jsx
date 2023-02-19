@@ -14,16 +14,16 @@ import ConsumptionCard from './cards/ConsumptionCard';
 
 const Dashboard = () => {
 
-    const [deviceCount, setDeviceCount] = useState(1000);
-    const [camerasCount, setCamersCount] = useState(2200);
+    const [deviceCount, setDeviceCount] = useState(100);
+    const [camerasCount, setCamersCount] = useState(50);
 
     
 
     const [orders, setOrders] = useState([
-        {id: 1, name: 'Jane cooper', price: '1200$', date: '12 Sep, 2023'},
-        {id: 2, name: 'Jane cooper', price: '1200$', date: '12 Sep, 2023'},
-        {id: 3, name: 'Jane cooper', price: '1200$', date: '12 Sep, 2023'},
-        {id: 4, name: 'Jane cooper', price: '1200$', date: '12 Sep, 2023'},
+        {id: 1, name: 'Ива  нов Иван', price: '3000р.', date: '12 Янв, 2023'},
+        {id: 2, name: 'Иванов Иван', price: '5000р.', date: '14 Янв, 2023'},
+        {id: 3, name: 'Иванов Иван', price: '2000р.', date: '15 Янв, 2023'},
+        {id: 4, name: 'Иванов Иван', price: '2000р.', date: '16 Янв, 2023'},
     ])
 
   return (
@@ -34,7 +34,7 @@ const Dashboard = () => {
                         title="Заявки на ремонт"
                         orders={orders}
                         />
-                    <PieChartCard/>
+                    <PieChartCard debt={'200 000'}/>
             </Grid>
 
                    
@@ -43,7 +43,7 @@ const Dashboard = () => {
                 <DashboardCard
                     xs={4}
                     icon={<img  style={{marginBottom: "10px"}}  src={cameraIcon}></img>}
-                    currentCount={deviceCount}
+                    currentCount={deviceCount- 7}
                     maxCount={deviceCount}
                     desc="Камер активно"
                     />
@@ -51,7 +51,7 @@ const Dashboard = () => {
                 <DashboardCard
                     xs={4}
                     icon={<img style={{marginBottom: "10px"}} src={deviceIcon}></img>}
-                    currentCount={camerasCount}
+                    currentCount={camerasCount - 5}
                     maxCount={camerasCount}
                     Modal='Devices'
                     desc="Оборудования исправно"
@@ -66,6 +66,7 @@ const Dashboard = () => {
                     desc="Ламп освещения работают"
                     />
                 <ChartCard
+                    income={'250 000'}
                     xs={12}/>
                 
                 <ConsumptionCard xs={12}/>

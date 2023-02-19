@@ -6,7 +6,7 @@ import dashIcon from '../assets/Icon (3).svg';
 import officeIcon from '../assets/office-building.svg';
 import SearchBar from '../components/SearchBar';
 import BuildingsTable from '../components/BuildingsTable';
-import logo from '../assets/Frame 1056.png';
+import logo from '../assets/Frame 1056.svg';
 import { FlatDashboardContext } from '../context';
 import FlatDashboard from '../components/FlatDashboard';
 

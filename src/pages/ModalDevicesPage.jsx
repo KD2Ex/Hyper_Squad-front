@@ -1,5 +1,5 @@
-import { SearchOutlined } from '@mui/icons-material';
-import { Box, Button, InputAdornment, Modal, Stack, TextField, Typography } from '@mui/material';
+import { Close, SearchOutlined } from '@mui/icons-material';
+import { Box, Button, IconButton, InputAdornment, Modal, Stack, TextField, Typography } from '@mui/material';
 import React from 'react'
 
 const ModalDevicesPage = ({open, handleClose}) => {
@@ -32,18 +32,30 @@ const ModalDevicesPage = ({open, handleClose}) => {
         >
           <Box sx={style}>
 
-          <TextField
-            sx={{borderRadius: 18}}
-            variant='filled'
-            InputProps={{ padding: 0,borderRadius: 18,bgcolor: 'white', disableUnderline: 'true', startAdornment: (
-                <InputAdornment margin='0px' position="start" sx={{margin: 0}}>
-                    <SearchOutlined sx={{mb: 2}} />
-                </InputAdornment>
-            ),}}
-            size='small'>
+
+            <Box sx={{display: 'flex', justifyContent:'space-between', alignItems: 'center'}}>
+
+
+                <TextField
+                    sx={{borderRadius: 18, m: 2}}
+                    variant='filled'
+                    InputProps={{ padding: 0,borderRadius: 18,bgcolor: 'white', disableUnderline: 'true', startAdornment: (
+                        <InputAdornment margin='0px' position="start" sx={{margin: 0}}>
+                            <SearchOutlined sx={{mb: 2}} />
+                        </InputAdornment>
+                    ),}}
+                    size='small'>
+                        
+                </TextField>
+
+                <IconButton color='secondary' sx={{bgcolor: 'white', borderRadius: 8}}
+                    onClick={handleClose}>
+                    <Close/>
+                </IconButton>
+
+            </Box>
+
                 
-        </TextField>
-            
             {/* <Typography variant="h4" fontWeight='bold' sx={{m:1, pb: 2}}>
                 Оборудование
             </Typography> */}
@@ -55,6 +67,33 @@ const ModalDevicesPage = ({open, handleClose}) => {
                     <Button sx={{m:1, color: 'secondary.main'}}>Подробнее</Button>
                 </Stack>
             ))}
+
+            <Box sx={{display: 'flex', justifyContent:'space-between', alignItems: 'center', mt: 2}}>
+                <Box  sx={{flexDirection: 'row',display: 'flex', ml: 2 }} >
+                    <Box sx={{width: '30px', height: '30px', p: 0.5, borderRadius: '50%', bgcolor: 'white', textAlign: 'center'}}>
+                        1
+                    </Box>
+                    
+                    <Box sx={{width: '30px', height: '30px', p: 0.5, borderRadius: '50%', bgcolor: 'white', textAlign: 'center'}}>
+                        2
+                    </Box>
+                    
+                    <Box sx={{width: '30px', height: '30px', p: 0.5, borderRadius: '50%', bgcolor: 'white', textAlign: 'center'}}>
+                        ...
+                    </Box>
+                    
+                    <Box sx={{width: '30px', height: '30px', p: 0.5, borderRadius: '50%', bgcolor: 'white', textAlign: 'center'}}>
+                        10
+                    </Box>
+                </Box>
+
+                <Stack direction='row'>
+
+                <Button disabled>Назад</Button>
+                <Button>Вперед</Button>
+                </Stack>
+            </Box>
+
 
           </Box>
 

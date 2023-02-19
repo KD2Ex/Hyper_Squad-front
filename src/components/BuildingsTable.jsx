@@ -13,12 +13,12 @@ const BuildingsTable = ({callback, modalRes}) => {
 
    
     const rows = [
-        {id: 1, name: 'Здание 1', adress: 'Северная 405'},
-        {id: 2, name: 'Здание 2', adress: 'Северная 405'},
-        {id: 3, name: 'Здание 3', adress: 'Северная 405'},
-        {id: 4, name: 'Здание 4', adress: 'Северная 405'},
-        {id: 5, name: 'Здание 5', adress: 'Северная 405'},
-        {id: 6, name: 'Здание 6', adress: 'Северная 405'},
+        {id: 1, name: '16-ти этажный жилой дом', adress: 'Северная 401'},
+        {id: 2, name: '16-ти этажный жилой дом', adress: 'Северная 402'},
+        {id: 3, name: '16-ти этажный жилой дом', adress: 'Северная 403'},
+        {id: 4, name: '16-ти этажный жилой дом', adress: 'Северная 404'},
+        {id: 5, name: '16-ти этажный жилой дом', adress: 'Северная 405'},
+        {id: 6, name: '16-ти этажный жилой дом', adress: 'Северная 406'},
         
     ]
 
@@ -43,15 +43,26 @@ const BuildingsTable = ({callback, modalRes}) => {
         ? <>
             <div style={{display: 'flex', justifyContent:'space-between', alignItems: 'center', width:'inherit', paddingLeft: '16px', marginBottom: '8px'}}> 
 
-                <Typography
-                    variant='h4'
-                    fontWeight='bold'>
-                    {lastBuilding.name}
-                </Typography>
 
-                <Button startIcon={<UndoOutlined/>} onClick={handleBack}>
+                <Button onClick={handleBack} sx={{fontSize: '20px'}}>
                     Назад
                 </Button>
+
+                <Typography
+                    fontSize={20}
+                    fontWeight='bold'
+                    sx={{mx: 1}}
+                    >
+                        /
+                </Typography>
+                
+                <Typography
+                    fontSize={24}
+                    fontWeight='bold'>
+                     {lastBuilding.adress}
+                </Typography>
+
+                
             </div>
 
             <BuildingDashboard/>
@@ -68,8 +79,8 @@ const BuildingsTable = ({callback, modalRes}) => {
                         <TableHead>
                             <TableRow>
                                 <TableCell sx={{maxWidth: 30}}>Номер</TableCell>
-                                <TableCell>Наименование</TableCell>
                                 <TableCell>Адрес</TableCell>
+                                <TableCell>Категория</TableCell>
                                 <TableCell></TableCell>
                             </TableRow>
                         </TableHead>
@@ -78,9 +89,9 @@ const BuildingsTable = ({callback, modalRes}) => {
                                 <TableRow 
                                     key={row.id}>
                                     <TableCell>{row.id}</TableCell>
-                                    <TableCell>{row.name}</TableCell>
                                     <TableCell>{row.adress}</TableCell>
-                                    <TableCell>{<Button id={row.id} onClick={handleOpen}> Подробнее</Button>}</TableCell>
+                                    <TableCell>{row.name}</TableCell>
+                                    <TableCell sx={{textAlign: 'right'}}>{<Button id={row.id} onClick={handleOpen}> Перейти</Button>}</TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>

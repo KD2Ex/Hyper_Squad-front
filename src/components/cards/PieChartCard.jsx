@@ -3,7 +3,7 @@ import { Stack } from '@mui/material'
 import React from 'react'
 import { Cell, Pie, PieChart } from 'recharts'
 
-const PieChartCard = ({xs}) => {
+const PieChartCard = ({xs, debt}) => {
 
     const data =[
         {name: 'Полная', value: 44},
@@ -32,31 +32,35 @@ const PieChartCard = ({xs}) => {
 
 
 
-            <div style={{display: 'flex', justifyContent: 'center', maxWidth: "ihnerit", flexWrap:'wrap'}}>
+            <div style={{display: 'flex', flexDirection:'column', alingItems: 'center', textAlign: 'center', justifyContent: 'center', maxWidth: "ihnerit", flexWrap:'wrap'}}>
 
-            <PieChart 
-                width={150}
-                height={150}>
-                <Pie
-                    data={data}
-                    dataKey="value"
-                    fill="rgba(255, 110, 1, 1)"
-                    startAngle={-270}
-                    >
+                <PieChart 
+                    width={150}
+                    height={150}
+                    style={{margin: 'auto'}}>
+                    <Pie
+                        data={data}
+                        dataKey="value"
+                        fill="rgba(255, 110, 1, 1)"
+                        startAngle={-270}
+                        >
 
-                        {data.map((item, index) => (
-                            <Cell key={`cell-${index}`} fill={COLORS[index]}></Cell>
-                        ))}
+                            {data.map((item, index) => (
+                                <Cell key={`cell-${index}`} fill={COLORS[index]}></Cell>
+                            ))}
 
-                </Pie>
-            </PieChart>
-            <Stack direction="row" >
-                {data.map((item, index) => (
-                    <Typography sx={{mx: 1}}>
-                        {item.value + ' %'}
-                    </Typography>
-                ))}
-            </Stack>
+                    </Pie>
+                </PieChart>
+                <Typography sx={{my: 1}} fontWeight='bold'>
+                    {debt + " руб."} 
+                </Typography>
+                <Stack direction="row" sx={{m: 'auto'}}>
+                    {data.map((item, index) => (
+                        <Typography color={index === 0 ? '#000' : COLORS[index]} sx={{mx: 1, }}>
+                            {item.value + ' %'}
+                        </Typography>
+                    ))}
+                </Stack>
             </div>
 
         </Card>

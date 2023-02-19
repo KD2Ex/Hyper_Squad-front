@@ -22,9 +22,9 @@ const ModalPage = ({open, handleClose}) => {
     const {isFlatDashboardOpen, setIsFlatDashboardOpen, setSelectedFlat} = useContext(FlatDashboardContext);
 
     const rows = [
-      {id: 1, name: 'Квартира 1'},
-      {id: 2, name: 'Квартира 2'},
-      {id: 3, name: 'Квартира 3'},
+      {id: 1, name: '1-й', type: 'Арендовано'},
+      {id: 2, name: '1-й', type: 'В собственности'},
+      {id: 3, name: '1-й', type: 'Арендовано'} ,
   ]
 
   const style = {
@@ -52,14 +52,19 @@ const ModalPage = ({open, handleClose}) => {
         >
           <Box sx={style}>
 
+            <Typography variant="h4" sx={{mb: 2}}>
+              Квартиры
+            </Typography>
+
             <TableContainer component={Paper} sx={{width:'100%'}}>
                 <Table 
                     sx={{minWidth: 650}}>
                         <TableHead>
                             <TableRow>
                                 <TableCell>Номер</TableCell>
-                                <TableCell>Наименование</TableCell>
-                                <TableCell>Подробнее</TableCell>
+                                <TableCell>Этаж</TableCell>
+                                <TableCell>Состояние</TableCell>
+                                <TableCell></TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -68,7 +73,8 @@ const ModalPage = ({open, handleClose}) => {
                                     key={row.id}>
                                     <TableCell>{row.id}</TableCell>
                                     <TableCell>{row.name}</TableCell>
-                                    <TableCell>{<Button id={row.id} onClick={handleClick}> Подробнее</Button>}</TableCell>
+                                    <TableCell>{row.type}</TableCell>
+                                    <TableCell sx={{textAlign: 'right'}}>{<Button id={row.id} onClick={handleClick}> Перейти</Button>}</TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>

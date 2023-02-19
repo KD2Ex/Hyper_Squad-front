@@ -16,15 +16,15 @@ import ConsumptionCard from './cards/ConsumptionCard';
 const BuildingDashboard = () => {
 
     const [deviceCount, setDeviceCount] = useState(100);
-    const [camerasCount, setCamersCount] = useState(220);
+    const [camerasCount, setCamersCount] = useState(50);
 
     
 
     const [orders, setOrders] = useState([
-        {id: 1, name: 'Jane cooper', price: '1200$', date: '12 Sep, 2023'},
-        {id: 2, name: 'Jane cooper', price: '1200$', date: '12 Sep, 2023'},
-        {id: 3, name: 'Jane cooper', price: '1200$', date: '12 Sep, 2023'},
-        {id: 4, name: 'Jane cooper', price: '1200$', date: '12 Sep, 2023'},
+        {id: 1, name: 'Иванов Иван', price: '3000р.', date: '12 Янв, 2023'},
+        {id: 2, name: 'Иванов Иван', price: '5000р.', date: '14 Янв, 2023'},
+        {id: 3, name: 'Иванов Иван', price: '2000р.', date: '15 Янв, 2023'},
+        {id: 4, name: 'Иванов Иван', price: '2000р.', date: '16 Янв, 2023'},
     ])
 
   return (
@@ -41,7 +41,7 @@ const BuildingDashboard = () => {
                         title="Заявки на ремонт"
                         orders={orders}
                         />
-                    <PieChartCard/>
+                    <PieChartCard debt={'30 000'}/>
             </Grid>
 
                    
@@ -50,7 +50,7 @@ const BuildingDashboard = () => {
                 <DashboardCard
                     xs={4}
                     icon={<img  style={{marginBottom: "10px"}}  src={cameraIcon}></img>}
-                    currentCount={deviceCount}
+                    currentCount={deviceCount -5}
                     maxCount={deviceCount}
                     desc="Камер активно"
                     />
@@ -58,7 +58,7 @@ const BuildingDashboard = () => {
                 <DashboardCard
                     xs={4}
                     icon={<img style={{marginBottom: "10px"}} src={deviceIcon}></img>}
-                    currentCount={camerasCount}
+                    currentCount={camerasCount - 7}
                     maxCount={camerasCount}
                     desc="Оборудования исправно"
                     />
@@ -67,11 +67,12 @@ const BuildingDashboard = () => {
                     xs={4}
                     icon={<img style={{marginBottom: "10px"}}  src={lightIcon}></img>}
                     title={camerasCount}
-                    currentCount={camerasCount}
+                    currentCount={camerasCount - 2}
                     maxCount={camerasCount}
                     desc="Ламп освещения работают"
                     />
                 <ChartCard
+                    income={'50 000'}
                     xs={12}/>
                 
                 <ConsumptionCard xs={12}/>

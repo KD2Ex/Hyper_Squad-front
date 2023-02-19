@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import Button from '@mui/material/Button';
-import { Box, Divider, Drawer, Input, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, Stack, Toolbar, Typography } from "@mui/material";
+import { Box, Divider, Drawer, Grid, Input, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, Stack, Toolbar, Typography } from "@mui/material";
 import { redirect } from "react-router-dom";
 import BuildingCard from "../components/cards/BuildingCard";
 import Carousel from "react-material-ui-carousel";
+import SearchBar from "../components/SearchBar";
+import img1 from "../assets/buildingImages/img1.png"
+import img2 from "../assets/buildingImages/img2.png"
+import img3 from "../assets/buildingImages/img3.png"
 
 const MainPage = () => {
     const [counter, setCounter] = useState(0);
@@ -11,27 +15,38 @@ const MainPage = () => {
 
     return (
         <Box style={{backgroundColor: 'gray',background:' rgba(255,255,255, 0.5)',
-             w: '100vw', minHeight:'100vh',
+             w: '100vw',
             alignItems:'center', display:'flex', padding: '24px'}}>
 
-            <Stack >
-                <Typography
-                    variant="h2"
-                    fontWeight='bold'>
-                    Добро пожаловать!
-                </Typography>
-           
-                <Stack sx={{overflow: 'hidden', alignItems:'center', bgcolor: 'white', borderRadius:4,
-                background: 'linear-gradient(180deg, rgba(255,156,7,1) 0%, rgba(255,93,40,1) 71%)',}} 
-                component={Paper} direction="row" >
+            <Grid container sx={{height:'auto'}} >
 
-                    <BuildingCard id={"1"}/>
-                    <BuildingCard id={"2"}/>
-                    <BuildingCard id={"2"}/>
-                    <BuildingCard id={"2"}/>
+                <Grid item xs={12 } sx={{height: 'fit-content'}}>
+                    <div style={{display:'flex', justifyContent:'space-between', alignItems: 'center'}}>
+                        <Typography 
+                            fontWeight='bold'
+                            textAlign='start'
+                            fontSize={24}>
+                            Выберите ЖК
+                        </Typography>
+                        <SearchBar/>
+                    </div>
+                </Grid>
 
-                </Stack>
-            </Stack>
+                <Grid item spacing={2} xs={12} sx={{height: 'fit-content', bgcolor: 'primary.gray', p:2, borderRadius: 4}}>
+                    
+                    <div style={{display: 'flex', justifyContent: 'flex-start', flexWrap:'wrap'}}>
+
+                    
+                        <BuildingCard id={"1"} icon={img1}/>
+                        <BuildingCard id={"2"} icon={img2}/>
+                        <BuildingCard id={"2"} icon={img3}/>
+                        {/* <BuildingCard id={"2"}/>
+                        <BuildingCard id={"2"}/> */}
+                    </div>
+                    
+                </Grid>
+            </Grid>
+
         </Box>
     );
 
