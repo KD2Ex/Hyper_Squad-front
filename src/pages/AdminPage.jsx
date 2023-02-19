@@ -1,5 +1,5 @@
 import { HomeMaxOutlined, HomeMiniOutlined, InfoOutlined, LogoutOutlined, SettingsOutlined, UndoOutlined, ViewListOutlined } from '@mui/icons-material'
-import { Box, Button, Container, Divider, Drawer, Grid, Link, List, ListItem, ListItemButton, ListItemText, Paper, Tab, Tabs, ToggleButton, ToggleButtonGroup, Toolbar, Typography } from '@mui/material'
+import { Box, Button, Container, Divider, Drawer, Grid, List, ListItem, ListItemButton, ListItemText, Paper, Tab, Tabs, ToggleButton, ToggleButtonGroup, Toolbar, Typography } from '@mui/material'
 import React, { useContext, useState } from 'react'
 import Dashboard from '../components/Dashboard'
 import dashIcon from '../assets/Icon (3).svg';
@@ -9,6 +9,7 @@ import BuildingsTable from '../components/BuildingsTable';
 import logo from '../assets/Frame 1056 (1).png';
 import { FlatDashboardContext } from '../context';
 import FlatDashboard from '../components/FlatDashboard';
+import { Link } from 'react-router-dom';
 
 
 const AdminPage = () => {
@@ -27,10 +28,6 @@ const AdminPage = () => {
         if (newValue !== null) {
             setTabValue(newValue);
         }
-    }
-
-    const modalCallback = (value) => {
-        setIsFlatDashboardOpen(value);
     }
 
 
@@ -87,10 +84,17 @@ const AdminPage = () => {
 
             {tabValue === 'dash'
                 ? <>
+                    <div style={{display: 'flex', flexDirection: 'row', }}>
+
+                        <Button component={Link} to="/" sx={{mr: 1, pr: 0}}>ЖК ТУРГЕНЕВ</Button>
+                        <Typography fontWeigth='bold' sx={{mt:0.5, color: 'primary.main'}}>/</Typography>
+                        <Button sx={{mr: 1, pr: 0}}>Панель управления</Button>
+
+                    </div>
                     <div style={{display: 'flex', justifyContent:'space-between', alignItems:'center', width:'inherit',
                         paddingRight:'8px'}}>
-
-                        <Typography variant="h4" fontWeight="bold" sx={{px:2, py: 2}}>Главная панель управления</Typography>
+                        
+                        <Typography variant="h4" fontWeight="bold" sx={{px:0, py: 0}}>Главная панель управления</Typography>
                         <SearchBar/>
                     </div>
                     <Dashboard/>

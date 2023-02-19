@@ -28,8 +28,8 @@ const PieChartCard = ({xs, debt}) => {
     <Grid item xs={xs}>
         <Card sx={{bgcolor: 'primary.gray', p: 2}}>
             <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-                <Typography  fontWeight='bold' flexWrap="nowrap" width="fit-content">
-                    Задолженности
+                <Typography  fontWeight='bold' flexWrap="nowrap" width="fit-content" sx={{fontSize: 14}}>
+                    Задолженности по аренде
                 </Typography>
 
                 <FormControl size='small' variant="filled" sx={{borderBottom: 'none', borderRadius: 12}}>

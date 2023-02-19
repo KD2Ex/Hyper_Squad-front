@@ -2,6 +2,7 @@ import { AccountCircleOutlined, DarkModeOutlined, InfoOutlined, NotificationAddO
 import { Badge, IconButton, InputAdornment, Stack, TextField } from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'
+import avatarIcon from '../assets/Avatar.svg'
 
 const SearchBar = () => {
   return (
@@ -31,10 +32,11 @@ const SearchBar = () => {
         <IconButton color="primary.gray" component="label">
             <InfoOutlined />
         </IconButton>
+        <IconButton  component="label">
+            <img src={avatarIcon}></img>
+        </IconButton>
 
-        <Badge badgeContent={4} color="primary">
-            <AccountCircleOutlined/>
-        </Badge>
+        
     </Stack>
   )
 }
