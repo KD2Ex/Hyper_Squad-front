@@ -1,8 +1,9 @@
 import { Card, CardActionArea, CardContent, Grid, Typography } from '@mui/material';
 import React, { useState } from 'react'
-import ModalPage from '../pages/ModalPage';
+import ModalDevicesPage from '../../pages/ModalDevicesPage';
+import ModalPage from '../../pages/ModalPage';
 
-const DashboardCard = ({Modal, currentCount, maxCount, icon, desc, xs, hideSlash}) => {
+const DashboardCard = ({Modal = null, currentCount, maxCount, icon, desc, xs, hideSlash}) => {
 
     const [open, setOpen] = useState(false);
 
@@ -34,10 +35,12 @@ const DashboardCard = ({Modal, currentCount, maxCount, icon, desc, xs, hideSlash
                 </CardContent>
             </CardActionArea>
         </Card>
-        {Modal !== null 
+        {Modal === 'Flats'
             ? <ModalPage open={open} handleClose={handleClose}/>
-            : null
-        }
+            : Modal === 'Devices' 
+            ? <ModalDevicesPage open={open} handleClose={handleClose}/>
+            : null}
+        
     </Grid>
   )
 }

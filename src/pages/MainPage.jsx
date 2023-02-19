@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from '@mui/material/Button';
 import { Box, Divider, Drawer, Input, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, Stack, Toolbar, Typography } from "@mui/material";
 import { redirect } from "react-router-dom";
-import BuildingCard from "../components/BuildingCard";
+import BuildingCard from "../components/cards/BuildingCard";
 import Carousel from "react-material-ui-carousel";
 
 const MainPage = () => {

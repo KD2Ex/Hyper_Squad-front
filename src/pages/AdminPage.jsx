@@ -1,4 +1,4 @@
-import { HomeMaxOutlined, HomeMiniOutlined, InfoOutlined, LogoutOutlined, SettingsOutlined, ViewListOutlined } from '@mui/icons-material'
+import { HomeMaxOutlined, HomeMiniOutlined, InfoOutlined, LogoutOutlined, SettingsOutlined, UndoOutlined, ViewListOutlined } from '@mui/icons-material'
 import { Box, Button, Container, Divider, Drawer, Grid, Link, List, ListItem, ListItemButton, ListItemText, Paper, Tab, Tabs, ToggleButton, ToggleButtonGroup, Toolbar, Typography } from '@mui/material'
 import React, { useContext, useState } from 'react'
 import Dashboard from '../components/Dashboard'
@@ -15,7 +15,7 @@ const AdminPage = () => {
     const [tabValue, setTabValue] = useState('dash')
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
-    const {isFlatDashboardOpen, setIsFlatDashboardOpen} = useContext(FlatDashboardContext);
+    const {isFlatDashboardOpen, setIsFlatDashboardOpen, isBuildingDashActive, setIsBuildingDashActive} = useContext(FlatDashboardContext);
     console.log(isFlatDashboardOpen);
 
     const sidebarXs = isSidebarOpen === true ? 2 : 0;
@@ -50,11 +50,11 @@ const AdminPage = () => {
 
                     <Divider/>
 
-                    <Typography sx={{mt: 4, mb: 2}}
+                    <Typography sx={{mt: 4, mb: 2, ml: 2}}
                         fontWeight='bold'
-                        fontSize={18}
-                        textAlign='center'>
-                        Администратор
+                        fontSize={16}
+                        textAlign='left'>
+                        АДМИНИСТРАТОР
                     </Typography>
 
                     <Tabs
@@ -96,9 +96,14 @@ const AdminPage = () => {
                     <Dashboard/>
                 </>                
                 : tabValue === 'buildings' && isFlatDashboardOpen === false
-                ? <BuildingsTable callback={(value) => setIsSidebarOpen(value)}/>
+                ? <Grid item container xs={12} sx={{width:'auto'}}>
+
+                 <BuildingsTable callback={(value) => setIsSidebarOpen(value)}/>
+                </Grid>
                 : tabValue === 'buildings' && isFlatDashboardOpen === true &&
-                 <FlatDashboard/>}
+                 <>
+                    <FlatDashboard />
+                 </>}
             
         </Grid>
     </Grid>

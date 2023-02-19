@@ -2,14 +2,14 @@ import { DevicesFoldOutlined, DevicesOutlined, LinkedCamera, LinkedCameraOutline
 import { Card, CardContent, Grid, SvgIcon, Typography } from '@mui/material';
 import { Box } from '@mui/material';
 import React, { useState } from 'react'
-import ChartCard from './ChartCard';
-import DashboardCard from './DashboardCard';
-import OrdersCard from './OrdersCard';
+import ChartCard from './cards/ChartCard';
+import DashboardCard from './cards/DashboardCard';
+import OrdersCard from './cards/OrdersCard';
 import cameraIcon from '../assets/icon.svg';
 import deviceIcon from '../assets/icon (1).svg';
 import lightIcon from '../assets/icon (2).svg';
-import PieChartCard from './PieChartCard';
-import ConsumptionCard from './ConsumptionCard';
+import PieChartCard from './cards/PieChartCard';
+import ConsumptionCard from './cards/ConsumptionCard';
 
 
 const Dashboard = () => {
@@ -53,6 +53,7 @@ const Dashboard = () => {
                     icon={<img style={{marginBottom: "10px"}} src={deviceIcon}></img>}
                     currentCount={camerasCount}
                     maxCount={camerasCount}
+                    Modal='Devices'
                     desc="Оборудования исправно"
                     />
 

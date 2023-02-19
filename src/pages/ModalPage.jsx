@@ -15,11 +15,11 @@ const style = {
     p: 4,
   };
 
-const ModalPage = ({open, handleClose, callback}) => {
+const ModalPage = ({open, handleClose}) => {
 
     //{console.log(handleClose)}
 
-    const {isFlatDashboardOpen, setIsFlatDashboardOpen} = useContext(FlatDashboardContext);
+    const {isFlatDashboardOpen, setIsFlatDashboardOpen, setSelectedFlat} = useContext(FlatDashboardContext);
 
     const rows = [
       {id: 1, name: 'Квартира 1'},
@@ -39,9 +39,10 @@ const ModalPage = ({open, handleClose, callback}) => {
     p: 4,
   };
 
-  const handleClick = () => {
+  const handleClick = (event) => {
     handleClose();
     setIsFlatDashboardOpen(true);
+    setSelectedFlat(rows[event.target.id - 1])
   }
 
   return (

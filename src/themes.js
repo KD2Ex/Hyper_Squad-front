@@ -109,6 +109,34 @@ const theme = createTheme({
                 },
             }
         },
+        MuiInputAdornment: {
+            styleOverrides: {
+                hiddenLabel: {
+                    margin: 0,
+                }
+            }
+        },
+        MuiFilledInput: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: 'white',
+                    borderRadius: 8,
+                    "&:hover": {
+                        //you want this to be the same as the backgroundColor above
+                        backgroundColor: "white",
+                    }
+                },
+                input: {
+                    padding: 0,
+                    paddingLeft: 8,
+                    borderRadius: 8,
+                    backgroundColor: 'white',
+                    '&.placeholder': {
+                        color: 'rgba(0,0,0,0.5)'
+                    }
+                }
+            }
+        },
         MuiFormControl: {
             styleOverrides: {
                 root: {
@@ -137,6 +165,7 @@ const theme = createTheme({
                     color: 'rgba(255, 110, 1, 1)',
                     alignItems: 'center',
                     m: 0,
+                    padding: 0,
                     borderRadius: 8,
                 },
             },
@@ -159,6 +188,16 @@ const theme = createTheme({
                             
                         }
                     }
+                }
+            }
+        },
+        MuiTableCell: {
+            styleOverrides: {
+                root: {
+                    fontSize: 16,
+                },
+                head: {
+                    fontWeight: 'bold'
                 }
             }
         }
