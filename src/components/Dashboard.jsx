@@ -20,7 +20,7 @@ const Dashboard = () => {
     
 
     const [orders, setOrders] = useState([
-        {id: 1, name: 'Ива  нов Иван', price: '3000р.', date: '12 Янв, 2023'},
+        {id: 1, name: 'Иванов Иван', price: '3000р.', date: '12 Янв, 2023'},
         {id: 2, name: 'Иванов Иван', price: '5000р.', date: '14 Янв, 2023'},
         {id: 3, name: 'Иванов Иван', price: '2000р.', date: '15 Янв, 2023'},
         {id: 4, name: 'Иванов Иван', price: '2000р.', date: '16 Янв, 2023'},

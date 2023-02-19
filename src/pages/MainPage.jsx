@@ -20,7 +20,7 @@ const MainPage = () => {
 
             <Grid container sx={{height:'auto'}} >
 
-                <Grid item xs={12 } sx={{height: 'fit-content'}}>
+                <Grid item xs={12} sx={{height: 'fit-content'}}>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems: 'center'}}>
                         <Typography 
                             fontWeight='bold'
@@ -37,9 +37,9 @@ const MainPage = () => {
                     <div style={{display: 'flex', justifyContent: 'flex-start', flexWrap:'wrap'}}>
 
                     
-                        <BuildingCard id={"1"} icon={img1}/>
-                        <BuildingCard id={"2"} icon={img2}/>
-                        <BuildingCard id={"2"} icon={img3}/>
+                        <BuildingCard id={"1"} icon={img1} title={'ЖК ТУРГЕНЕВ'}/>
+                        <BuildingCard id={"2"} icon={img2}  title={'ЖК ГУБЕРНСКИЙ'}/>
+                        <BuildingCard id={"2"} icon={img3}  title={'ЖК БОЛЬШОЙ'}/>
                         {/* <BuildingCard id={"2"}/>
                         <BuildingCard id={"2"}/> */}
                     </div>
